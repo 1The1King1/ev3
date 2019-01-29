@@ -47,6 +47,7 @@ class Robozin(object):
             sleep(0.9)
             self.motor_E.run_to_rel_pos(position_sp=a, speed_sp=b)
             self.motor_D.run_to_rel_pos(position_sp=-a, speed_sp=b)
+            self.angulo_in = self.gyroS.value()
 
         elif self.infraS.value() <= 35:
             print("%s  -  %s    2.1" % (self.angulo_in, self.giroS.value()))
@@ -60,6 +61,8 @@ class Robozin(object):
             sleep(0.9)
             self.motor_D.run_to_rel_pos(position_sp=a, speed_sp=b)
             self.motor_E.run_to_rel_pos(position_sp=-a, speed_sp=b)
+            self.angulo_in = self.gyroS.value()
+
 
         # Correção do Giroscopio
 
