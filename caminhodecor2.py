@@ -36,6 +36,8 @@ class Robozin(object):
         b = 200
         c = 300
         if self.infraS.value() > 40:
+            self.motor_D.stop()
+            self.motor_E.stop()
             print("%s  -  %s    2.2" % (self.angulo_in, self.giroS.value()))
             self.motor_E.run_to_rel_pos(position_sp=-a, speed_sp=b)
             self.motor_D.run_to_rel_pos(position_sp=a, speed_sp=b)
@@ -49,6 +51,7 @@ class Robozin(object):
         elif self.infraS.value() <= 35:
             print("%s  -  %s    2.1" % (self.angulo_in, self.giroS.value()))
             self.motor_D.stop()
+            self.motor_E.stop()
             self.motor_E.run_to_rel_pos(position_sp=a, speed_sp=b)
             self.motor_D.run_to_rel_pos(position_sp=-a, speed_sp=b)
             self.motor_E.wait_while("running")
